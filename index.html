@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon(1).png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Contact Hub</title>
+  </head>
+  <body>
+    <div class="circel circel-1"></div>
+    <div class="circel circel-2"></div>
+    <div class="circel circel-3"></div>
+
+    <div class="container">
+      <header class="topbar">
+        <nav class="navbar navbar-expand-md container-lg py-2">
+          <a
+            class="navbar-brand d-flex align-items-center gap-3 me-auto"
+            href="#"
+          >
+            <span class="brand-icon">
+              <i class="fa-solid fa-contact-book"></i>
+            </span>
+
+            <div class="d-flex flex-column">
+              <div class="title">Contact<span> Hub</span></div>
+              <div class="subtitle">Your daily meal inspiration</div>
+            </div>
+          </a>
+
+          <button
+            class="navbar-toggler ms-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topbarCollapse"
+            aria-controls="topbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="topbarCollapse">
+            <ul class="navbar-nav ms-auto align-items-lg-center nav-icons">
+              <li class="nav-item">
+                <!-- <button type="button" class="btn btn-primary">
+                  + Add Contact
+                </button> -->
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  + Add Contact
+                </button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" title="History"
+                  ><i class="fa-solid fa-bell"></i
+                ></a>
+              </li>
+              <li class="nav-item d-none d-md-block">
+                <a class="nav-link" href="#" title="Settings"
+                  ><i class="fa-solid fa-gear"></i
+                ></a>
+              </li>
+              <li class="nav-item ms-2">
+                <a class="nav-link p-0" href="#" title="Profile">
+                  <img class="avatar" src="images/avatar-2.jpg" alt="avatar" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog custom-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Add New Contact
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="img-form">
+                <div class="d-flex justify-content-center">
+                  <i id="imgPlace" class="fa img-place ii fa-user"></i>
+                  <img id="preview" class="preview-img d-none" />
+                
+                </div>
+                <div class="upload-photo">
+                  <input type="file" onchange="changePhoto()" id="photoInput" hidden />
+                  <label for="photoInput" class="upload-btn">
+                    <i class="fa fa-camera"></i>
+                    <span>Change Photo</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="container mt-5">
+                <form class="custom-form">
+                  <div class="mb-4">
+                    <label for="fullName" class="form-label">
+                      Full Name <span class="text-danger">*</span>
+                    </label>
+                    <input
+                    oninput="inPutValedation(this,'name')"
+                      id="fullName"
+                      type="text"
+                      class="form-control  custom-input"
+                      placeholder="Enter full name"
+                    />
+                    <small class="d-none text-danger">Name should contain only letters and spaces (5-50 characters)</small>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="phoneNumber" class="form-label">
+                      Phone Number <span class="text-danger">*</span>
+                    </label>
+                    <input
+                    oninput="inPutValedation(this,'phoneNumber')"
+                      id="phoneNumber"
+                      type="text"
+                      class="form-control custom-input"
+                      placeholder="e.g., 01012345678"
+                    />
+                    <small class="d-none text-danger">Please enter a valid Egyptian phone number</small>
+
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="emailAddress" class="form-label"
+                      >Email Address</label
+                    >
+                    <input
+                    oninput="inPutValedation(this,'emailAddress')"
+
+                      id="emailAddress"
+                      type="email"
+                      class="form-control custom-input"
+                      placeholder="name@example.com"
+                    />
+                    <small class="d-none text-danger">Please enter a valid email address</small>
+
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="address" class="form-label">Address</label>
+                    <input
+                      id="address"
+                      type="text"
+                      class="form-control custom-input"
+                      placeholder="Enter address"
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label">Group</label>
+                    <select id="groupSelect" class="form-control custom-input">
+                      <option>Select a group</option>
+                      <option>School</option>
+                      <option>Friends</option>
+                      <option>Family</option>
+                      <option>Work</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="Notes" class="form-label">Notes</label>
+                    <textarea
+                      id="Notes"
+                      class="form-control custom-input"
+                      placeholder="Add notes about this contact"
+                      cols="30"
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="mb-4">
+                    <input
+                      name="checkbox"
+                      type="checkbox"
+                      value="Favorite"
+                      id="Favorite"
+                    />
+                    <label for="Favorite" class="form-label">Favorite</label>
+
+                    <input
+                      name="checkbox"
+                      type="checkbox"
+                      value="Emergency"
+                      id="Emergency"
+                    />
+                    <label for="Emergency" class="form-label">Emergency</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+            
+                type="button"
+                class="btn  w-50"
+                data-bs-dismiss="modal" 
+                 id="jj"
+              >
+                Close
+              </button>
+              <button
+                onclick="addContact()"
+                id="btnAdd"
+                type="button"
+                class="btn btn-primary w-50"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                Save contact
+              </button>
+              <button
+              onclick="updateData(indexUpdate)"
+              id="btnEdit"
+              type="button"
+              class="btn d-none btn-primary w-50"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Update contact
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cardss">
+        <div class="cart d-flex">
+          <i class="fa-solid fa-users"></i>
+          <div>
+            <span>TOTAL</span>
+            <br />
+            <span id="total"></span>
+          </div>
+        </div>
+        <div class="cart d-flex">
+          <i class="fa-solid ss fa-star"></i>
+          <div>
+            <span>FAVORITES</span>
+            <br />
+            <span id="favoritLign"></span>
+          </div>
+        </div>
+        <div class="cart d-flex">
+          <i class="fa-solid fa-heart fa-heartbeat"></i>
+          <div id="salp">
+            <span>EMERGENCY</span>
+            <br />
+            <span id="emergencyLign"></span>
+          </div>
+        </div>
+      </div>
+
+      <h2>All Contacts</h2>
+      <p>Manage and organize your <span id="qq"></span> contacts</p>
+      <input
+        oninput="searchData(this.value)"
+        type="search"
+        class="form-control"
+        placeholder="Search by name, phone, or email..."
+        id="searchInput"
+      />
+      <div class="continer-display d-flex flex-wrap gap-3" id="cardDisplay">
+        <!-- <div class="card mt-4 custom-card">
+          <div class="d-flex align-items-center">
+            <div class="img-cart">
+              <img src="images/10.avif" class="card-img" />
+              <div class="star-badge"><i class="fa fa-star"></i></div>
+              <div class="emarg-badge"><i class="fa fa-heartbeat"></i></div>
+            </div>
+
+            <div class="name-cart">
+              <h3>kmsfjgjgyg jhggjg</h3>
+              <span class="d-flex align-items-center">
+                <i class="fa-solid fa-phone phone-icon"></i>
+                <p>010903289840</p>
+              </span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="info">
+              <div>
+                <div class="icon-box icon-mail">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                tovuqdibo@mailinator.com
+              </div>
+
+              <div>
+                <div class="icon-box icon-location">
+                  <i class="fa fa-location-dot"></i>
+                </div>
+                Quisquam repellendus
+              </div>
+            </div>
+
+            <div class="footer-card d-flex justify-content-between">
+              <div class="d-flex">
+                <button class="action-icon icon-call">
+                  <i class="fa fa-phone"></i>
+                </button>
+                <button class="action-icon icon-mail-btn">
+                  <i class="fa fa-envelope"></i>
+                </button>
+              </div>
+
+              <div class="d-flex">
+                <button class="action-icon icon-star">
+                  <i class="fa fa-star"></i>
+                </button>
+                <button class="action-icon icon-heart">
+                  <i class="fa fa-heartbeat"></i>
+                </button>
+                <button class="action-icon icon-edit">
+                  <i class="fa fa-pen"></i>
+                </button>
+                <button class="action-icon icon-delete">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="favorites-box">
+        <h2 class="favorites-title">
+          <i class="fa action-icon icon-star fa-star"></i> Favorites
+        </h2>
+
+        <div id="htmlFavorite" class="fff d-flex flex-wrap gap-2">
+        
+        </div>
+      </div>
+
+      <div class="favorites-box">
+        <h2 class="favorites-title">
+          <i class="fa fav-action call-red fa-heartbeat"></i> Emergency
+        </h2>
+        <div id="htmlEmar" class="fff d-flex flex-wrap gap-2">
+        
+        </div>
+      
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
